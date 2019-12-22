@@ -29,6 +29,16 @@ public class EmployeeServiceTest {
     assertEquals("Sepp", adultEmployees.get(3).getName());
   }
 
+  @Test
+  public void should_return_employees_name_is_capitalized_when_invoke_getEmployeesUpperName() {
+    List<Employee> adultEmployees = getEmployeeService().getEmployeesUpperName();
+
+    assertEquals("MAX", adultEmployees.get(0).getName());
+    assertEquals("SEPP", adultEmployees.get(1).getName());
+    assertEquals("NINA", adultEmployees.get(2).getName());
+    assertEquals("MIKE", adultEmployees.get(3).getName());
+  }
+
   private EmployeeService getEmployeeService() {
     return new EmployeeService();
   }

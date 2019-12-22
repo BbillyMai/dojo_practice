@@ -24,6 +24,13 @@ public class EmployeeService {
     return employeesSortedByName;
   }
 
+  public List<Employee> getEmployeesUpperName() {
+    List<Employee> allEmployees = getAllEmployees();
+    List<Employee> employeesUpperName = allEmployees.stream()
+        .peek(e -> e.setName(e.getName().toUpperCase())).collect(Collectors.toList());
+    return employeesUpperName;
+  }
+
   private List<Employee> getAllEmployees() {
     return employeeDao.getAllEmployee();
   }
