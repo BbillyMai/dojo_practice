@@ -8,17 +8,23 @@ import model.Employee;
 
 public class EmployeeService {
 
+  private EmployeeDao employeeDao = new EmployeeDao();
+
   public List<Employee> getAdultEmployee() {
-    EmployeeDao employeeDao = new EmployeeDao();
-    List<Employee> allEmployee = employeeDao.getAllEmployee();
-    List<Employee> adultEmployee = allEmployee.stream().filter(Employee::isAdult).collect(Collectors.toList());
+    List<Employee> allEmployee = getAllEmployees();
+    List<Employee> adultEmployee = allEmployee.stream()
+        .filter(Employee::isAdult).collect(Collectors.toList());
     return adultEmployee;
   }
 
   public List<Employee> getEmployeesSortedByName() {
-    EmployeeDao employeeDao = new EmployeeDao();
-    List<Employee> allEmployee = employeeDao.getAllEmployee();
-    List<Employee> employeesSortedByName = allEmployee.stream().sorted(Comparator.comparing(Employee::getName)).collect(Collectors.toList());
+    List<Employee> allEmployee = getAllEmployees();
+    List<Employee> employeesSortedByName = allEmployee.stream()
+        .sorted(Comparator.comparing(Employee::getName)).collect(Collectors.toList());
     return employeesSortedByName;
+  }
+
+  private List<Employee> getAllEmployees() {
+    return employeeDao.getAllEmployee();
   }
 }
