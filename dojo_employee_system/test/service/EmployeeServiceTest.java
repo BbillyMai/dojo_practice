@@ -15,9 +15,10 @@ public class EmployeeServiceTest {
     EmployeeService employeeService = new EmployeeService();
     List<Employee> adultEmployees = employeeService.getAdultEmployee();
 
-    assertEquals("Sepp" ,adultEmployees.get(0).getName());
-    assertEquals(18 ,adultEmployees.get(0).getAge());
-    assertEquals("Mike" ,adultEmployees.get(1).getName());
-    assertEquals(51 ,adultEmployees.get(1).getAge());
+    assertEquals(2, adultEmployees.size());
+    assertEquals("Sepp", adultEmployees.get(0).getName());
+    assertEquals(18, adultEmployees.get(0).getAge());
+    assertEquals("Mike", adultEmployees.get(1).getName());
+    assertEquals(51, adultEmployees.get(1).getAge());
   }
 }
