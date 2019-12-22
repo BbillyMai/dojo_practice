@@ -39,6 +39,16 @@ public class EmployeeServiceTest {
     assertEquals("MIKE", adultEmployees.get(3).getName());
   }
 
+  @Test
+  public void should_return_employees_sorted_by_name_desc_when_invoke_getEmployeesSortedByNameDesc() {
+    List<Employee> adultEmployees = getEmployeeService().getEmployeesSortedByNameDesc();
+
+    assertEquals("Sepp", adultEmployees.get(0).getName());
+    assertEquals("Nina", adultEmployees.get(1).getName());
+    assertEquals("Mike", adultEmployees.get(2).getName());
+    assertEquals("Max", adultEmployees.get(3).getName());
+  }
+
   private EmployeeService getEmployeeService() {
     return new EmployeeService();
   }

@@ -31,6 +31,13 @@ public class EmployeeService {
     return employeesUpperName;
   }
 
+  public List<Employee> getEmployeesSortedByNameDesc() {
+    List<Employee> allEmployee = getAllEmployees();
+    List<Employee> employeesSortedByNameDesc = allEmployee.stream()
+        .sorted(Comparator.comparing(Employee::getName).reversed()).collect(Collectors.toList());
+    return employeesSortedByNameDesc;
+  }
+
   private List<Employee> getAllEmployees() {
     return employeeDao.getAllEmployee();
   }
